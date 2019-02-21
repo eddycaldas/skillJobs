@@ -13,22 +13,26 @@ export default class App extends Component {
  
     this.setState(prevState => {
       return {
-        workersValues: prevState.workersValues.concat(
-          'Name: ' + workerName,
-          'Phone Number: ' + workerNumber, 
-          'Skills: ' + workerSkills,
-          'Zip Code: ' + workerZipCode
-        
-          )
+        workersValues: prevState.workersValues.concat({
+          key: Math.random(),
+          name:
+          'Name: ' + workerName + ', ' +
+          'Phone Number: ' + workerNumber + ', ' + 
+          'Skills: ' + workerSkills + ', ' +
+          'Zip Code: ' + workerZipCode,
+          image: {
+            uri: 'http://eddycaldaswebsite.surge.sh/images/pic00.jpg'
+          }
+         })
       }
     })
   }
 
-  workerDeletedHandler = (index) => {
+  workerDeletedHandler = (key) => {
     this.setState(prevState =>{
       return {
-        workersValues: prevState.workersValues.filter((value, i) => {
-          return i !== index
+        workersValues: prevState.workersValues.filter(value => {
+          return value.key !== key;
         })
       }
     })

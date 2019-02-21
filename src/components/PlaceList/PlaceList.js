@@ -1,17 +1,20 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {FlatList, StyleSheet} from 'react-native';
 
 import ListItem from '../ListItem/ListItem';
 
 const placeList = props => {
-    const workersOutput = props.workersValues.map((value, i) => (
-        <ListItem 
-            key={i} 
-            oneWorkerName={value} 
-            onItemPressed={() => props.onItemDeleted(i)}/>
-      ))
     return (
-        <View style={styles.listContainer}>{workersOutput}</View>
+        <FlatList 
+            style={styles.listContainer}
+            data={props.workersValues}
+            renderItem={(info) => (
+                <ListItem 
+                    oneWorkerName={info.item.name}
+                    workerImage={info.item.image} 
+                    onItemPressed={() => props.onItemDeleted(info.item.key)}/>
+                )}
+            />
     )
 }
 
