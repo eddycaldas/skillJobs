@@ -8,7 +8,6 @@ class PlaceInput extends Component {
         workerNumber: '',
         workerSkills: '',
         workerZipCode: ''
-        //workersValues: []
       }
     
       handleName = (val) => {
@@ -84,14 +83,18 @@ class PlaceInput extends Component {
 
 const styles = StyleSheet.create({
     inputContainer: {
-        width: '100%'
+        width: '100%',
+        justifyContent: "space-between",
+        alignItems: 'center'
     },
     input: {
+        width: '90%',
+        alignContent: "center",
          margin: 10,
          height: 40,
     },
     button: {
-    
+        width: '30%'
     }
 })
 

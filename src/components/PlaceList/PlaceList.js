@@ -12,7 +12,7 @@ const placeList = props => {
                 <ListItem 
                     oneWorkerName={info.item.name}
                     workerImage={info.item.image} 
-                    onItemPressed={() => props.onItemDeleted(info.item.key)}/>
+                    onItemPressed={() => props.onItemSelected(info.item.key)}/>
                 )}
             />
     )
@@ -20,7 +20,7 @@ const placeList = props => {
 
 const styles = StyleSheet.create({
     listContainer: {
-        width: '100%'
+        width: '90%'
     }
 })
 
